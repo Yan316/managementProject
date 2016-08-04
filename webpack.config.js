@@ -1,6 +1,6 @@
 module.exports = {
     entry: [
-    "./entry.js",
+    "./views/entry.js",
     "webpack-dev-server/client?http://localhost:8080"
     ],
     output: {
