@@ -22,6 +22,7 @@ public final class UserInfo {
     private UserInfo(Builder builder) {
         this.userName = builder.userName;
         this.password = builder.password;
+        this.phoneNumber = builder.phoneNumber;
     }
 
     public String getUserName() {

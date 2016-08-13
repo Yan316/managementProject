@@ -25,7 +25,7 @@ public class UserController {
 
     @CrossOrigin
     @RequestMapping(method = RequestMethod.POST)
-    public UserInfoDTO create(@RequestBody @Valid UserInfoDTO userInfoDTO){
+    public UserInfoDTO registAccount(@RequestBody @Valid UserInfoDTO userInfoDTO){
         return userInfoService.create(userInfoDTO);
     }
 
