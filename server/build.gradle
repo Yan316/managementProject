@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+	baseName = 'server'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile(['org.springframework.boot:spring-boot-starter'],
+			['org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE'],
+			['org.springframework.data:spring-data-mongodb:1.9.2.RELEASE'],
+			['org.springframework:spring-web:4.3.2.RELEASE']
+	)
+	compile("org.thymeleaf:thymeleaf-spring4")
+	compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
