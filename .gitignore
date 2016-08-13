@@ -1,6 +1,7 @@
 client/node_modules/
 .idea/
 client/npm-debug.log
+client/bundle.js
 
 server/.gradle/
 server/build/

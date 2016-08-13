@@ -4,10 +4,7 @@ import com.server.domain.UserInfo;
 import com.server.domain.UserInfoDTO;
 import com.server.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.AssertFalse;
@@ -26,11 +23,13 @@ public class UserController {
         this.userInfoService = userInfoService;
     }
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST)
     public UserInfoDTO create(@RequestBody @Valid UserInfoDTO userInfoDTO){
         return userInfoService.create(userInfoDTO);
     }
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.GET)
     List<UserInfoDTO> findAll() {
         return userInfoService.findAll();
