@@ -1,4 +1,3 @@
-
 import React from 'react'
 var $ = require('jQuery');
 
@@ -67,7 +66,7 @@ export default React.createClass({
             <button onClick={this.createAccountFromServer}> 提交
             </button>
        </div>
-    		)
+    )
   }
 });
 

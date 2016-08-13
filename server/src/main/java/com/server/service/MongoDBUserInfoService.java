@@ -2,9 +2,11 @@ package com.server.service;
 
 import com.server.domain.UserInfo;
 import com.server.domain.UserInfoDTO;
+import com.server.exception.UserInfoNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -22,7 +24,7 @@ public class MongoDBUserInfoService implements UserInfoService {
 
     @Override
     public UserInfoDTO create(UserInfoDTO userInfoDTO) {
-        UserInfo persisted = UserInfo.getBuilder().userName(userInfoDTO.getUserName()).password(userInfoDTO.getPassword()).build();
+        UserInfo persisted = UserInfo.getBuilder().userName(userInfoDTO.getUserName()).password(userInfoDTO.getPassword()).phoneNumber(userInfoDTO.getPhoneNumber()).build();
         persisted = repository.save(persisted);
         return convertToDTO(persisted);
     }
@@ -50,9 +52,14 @@ public class MongoDBUserInfoService implements UserInfoService {
         return userInfoEntries.stream().map(this::convertToDTO).collect(toList());
     }
 
-    @Override
-    public UserInfoDTO findByPhoneNumber(String phoneNumber) {
-        return null;
+    public UserInfoDTO findByUserName(String userName) {
+        UserInfo userInfo = findUserInfoById(userName);
+        return convertToDTO(userInfo);
+    }
+
+    private UserInfo findUserInfoById(String userName) {
+        Optional<UserInfo> result = repository.findOne(userName);
+        return result.orElseThrow(()-> new UserInfoNotFoundException(userName));
     }
 
     @Override

@@ -10,11 +10,11 @@ import java.util.List;
 public interface UserInfoService {
     UserInfoDTO create(UserInfoDTO userInfoDTO);
 
-    UserInfoDTO delete(String phoneNumber);
+    UserInfoDTO delete(String userName);
 
     List<UserInfoDTO> findAll();
 
-    UserInfoDTO findByPhoneNumber(String phoneNumber);
+    UserInfoDTO findByUserName(String userName);
 
     UserInfoDTO update(UserInfoDTO userInfoDTO);
 }

@@ -12,7 +12,6 @@ public final class UserInfoDTO {
     @NotEmpty
     private String password;
 
-    @NotEmpty
     private String phoneNumber;
 
     public String getUserName() {

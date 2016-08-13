@@ -1,8 +1,5 @@
 package com.server.domain;
 
-import com.sun.javafx.beans.IDProperty;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.internal.metadata.aggregated.ExecutableMetaData;
 import org.springframework.data.annotation.Id;
 
 import static org.thymeleaf.util.Validate.notNull;
@@ -11,9 +8,10 @@ import static org.thymeleaf.util.Validate.notNull;
  * Created by yanhuang on 8/12/16.
  */
 public final class UserInfo {
-    @Id
+
     private String phoneNumber;
 
+    @Id
     private String userName;
 
     private String password;
@@ -54,7 +52,7 @@ public final class UserInfo {
         return new Builder();
     }
 
-    public void update(String userName, String password) {
+    public void update(String userName, String password, String phoneNumber) {
         checkUserNameAndPassword(userName, password);
 
         this.userName = userName;
@@ -65,6 +63,7 @@ public final class UserInfo {
 
         private String userName;
         private String password;
+        private String phoneNumber;
 
         public Builder userName(String userName) {
             this.userName = userName;
@@ -73,6 +72,11 @@ public final class UserInfo {
 
         public Builder password(String password) {
             this.password = password;
+            return this;
+        }
+
+        public Builder phoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
             return this;
         }
 
@@ -86,6 +90,6 @@ public final class UserInfo {
 
     private void checkUserNameAndPassword(String userName, String password) {
         notNull(userName, "UserName cannot be null");
-        notNull(password, "password cannot be null");
+        notNull(password, "Password cannot be null");
     }
 }
