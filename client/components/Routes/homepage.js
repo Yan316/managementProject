@@ -1,9 +1,9 @@
-require("../../css/menu.css");
+require("../../css/dish.css");
 import React from 'react'
 import { render } from 'react-dom'
 import NavLink from './NavLink'
 import PictureSelect from '../base/PictureSelect'
-import MenuItem from '../menu/MenuItem'
+import MenuItem from '../dish/dishItem'
 var $ = require('jQuery');
 
 export default React.createClass({
@@ -21,8 +21,11 @@ export default React.createClass({
 		        	<div className="column three-fourth">
 			        	<div className="boxed-group">
 			        	 	<h2 className="menuHeading">添加菜单</h2>
-					        <PictureSelect></PictureSelect>
-					        <MenuItem></MenuItem>
+			        		<MenuItem></MenuItem>
+			        	 	<div>
+				        	 	<h3>选择菜品图片</h3>
+						        <PictureSelect></PictureSelect>
+					        </div>
 					    </div>
 			        </div>
 		        </div>

@@ -13,9 +13,8 @@ export default React.createClass({
 	render() {
 		return (
 			<div>
-			   <label>{this.props.title}
+			   <p><strong>{this.props.title}</strong></p>
 			   <input id={this.props.id} name={this.props.name} onChange={this.handleChange} value={this.state.value}></input>
-			   </label>
 			</div>
 			);
 	}
