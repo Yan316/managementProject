@@ -1,5 +1,5 @@
 var React = require('react');
-import InputComponent from './InputComponent'
+import InputComponent from '../base/InputComponent'
 
 export default React.createClass({
 	render() {
