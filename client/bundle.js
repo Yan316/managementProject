@@ -37307,7 +37307,9 @@
 
 	var $ = __webpack_require__(240);
 
-	exports.default = _react2.default.createElement({
+	exports.default = _react2.default.createClass({
+	    displayName: 'homepage',
+
 	    render: function render() {
 	        return _react2.default.createElement(
 	            'div',
